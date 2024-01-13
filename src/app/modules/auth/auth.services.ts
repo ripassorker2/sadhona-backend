@@ -34,13 +34,13 @@ const loginUser = async (
 
    // create access token
    const accessToken = jwtHelpers.createToken(
-      { email, role: isUserExist?.role },
+      { email, role: isUserExist?.role, id: isUserExist._id },
       config.jwt.secret_token as Secret,
       config.jwt.secret_expires as string
    );
 
    const refreshToken = jwtHelpers.createToken(
-      { email, role: isUserExist?.role },
+      { email, role: isUserExist?.role, id: isUserExist._id },
       config.jwt.refresh_token as Secret,
       config.jwt.refresh_expires as string
    );
@@ -73,14 +73,15 @@ const refreshToken = async (token: string): Promise<IRefreshToken | null> => {
 
    //generate new token
 
+   // create access token
    const accessToken = jwtHelpers.createToken(
-      { email, role: isUserExist.role },
+      { email, role: isUserExist?.role, id: isUserExist._id },
       config.jwt.secret_token as Secret,
       config.jwt.secret_expires as string
    );
 
    const refreshToken = jwtHelpers.createToken(
-      { email, role: isUserExist?.role },
+      { email, role: isUserExist?.role, id: isUserExist._id },
       config.jwt.refresh_token as Secret,
       config.jwt.refresh_expires as string
    );

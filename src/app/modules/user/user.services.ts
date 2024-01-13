@@ -12,9 +12,6 @@ const createUser = async (user: IUser): Promise<IUser | null> => {
    return result;
 };
 
-//
-//
-//
 const getAllUsers = async (): Promise<IUser[] | null> => {
    const user = await User.find();
    return user;
