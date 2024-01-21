@@ -19,6 +19,7 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
       secure: config.env === 'production',
       httpOnly: true,
    };
+   res.cookie('accessToken', result?.accessToken, cookieOptions);
    res.cookie('refreshToken', result?.refreshToken, cookieOptions);
 
    if (result?.refreshToken) {
@@ -42,6 +43,7 @@ const refreshToken = catchAsync(async (req: Request, res: Response) => {
       secure: config.env === 'production',
       httpOnly: true,
    };
+   res.cookie('accessToken', result?.accessToken, cookieOptions);
    res.cookie('refreshToken', result?.refreshToken, cookieOptions);
 
    if (result?.refreshToken) {

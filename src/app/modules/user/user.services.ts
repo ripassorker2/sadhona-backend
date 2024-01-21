@@ -16,8 +16,8 @@ const getAllUsers = async (): Promise<IUser[] | null> => {
    const user = await User.find();
    return user;
 };
-const getSingleUser = async (email: string): Promise<IUser | null> => {
-   const user = await User.findOne({ email });
+const getSingleUser = async (id: string): Promise<IUser | null> => {
+   const user = await User.findOne({ _id: id });
    return user;
 };
 

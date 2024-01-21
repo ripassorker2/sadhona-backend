@@ -15,7 +15,7 @@ router.post(
    UserControler.createUser
 );
 router.get(
-   '/:email',
+   '/:id',
    // auth(USER_ROLE.ADMIN, USER_ROLE.CLIENT, USER_ROLE.FREELANCER),
    UserControler.getSingleUser
 );
